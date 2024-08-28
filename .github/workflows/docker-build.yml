@@ -6,12 +6,17 @@ on:
     paths:
       - ubuntu/Dockerfile
   workflow_dispatch:
-
+env:
+  IMAGE_NAME: ubuntu
+  
 jobs:
 
   build:
 
     runs-on: ubuntu-latest
+    permissions:
+      packages: write
+      contents: read
 
     steps:
     - uses: actions/checkout@v4
@@ -34,7 +39,6 @@ jobs:
       uses: docker/build-push-action@v5
       with:
         context: ./ubuntu
-        #file: Dockerfile
         push: true
         tags: |
           roeeez/ubuntu:latest

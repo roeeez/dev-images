@@ -34,7 +34,7 @@ jobs:
       uses: docker/build-push-action@v5
       with:
         context: ./ubuntu
-        file: Dockerfile
+        #file: Dockerfile
         push: true
         tags: |
           roeeez/ubuntu:latest
